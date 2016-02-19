@@ -1,0 +1,5 @@
+node_modules
+styleguide
+res-tmp
+.idea
+npm-debug.log

@@ -1,0 +1,57 @@
+#!/usr/bin/env node
+
+var RES = require('../lib/res')
+var argv = require('minimist')(process.argv.slice(2))
+var log
+
+!(function () {
+  if (!argv._[0] || argv.h || argv.help) {
+    return require('fs').createReadStream(require('path').resolve(__dirname, 'usage.txt'))
+      .pipe(process.stdout)
+      .on('close', function () { process.exit(1) })
+  }
+
+  if (argv.V || argv.version) {
+    return console.log(require('../package.json').version)
+  }
+
+  var opts = {
+    output: argv.o || argv.output,
+    title: argv.t || argv.title,
+    root: argv.r || argv.root,
+    pushstate: argv.p || argv.pushstate,
+    files: argv.f || argv.files,
+    config: argv.c || argv.config,
+    dev: argv.d || argv.dev,
+    verbose: argv.v || argv.verbose
+  }
+
+  log = require('../lib/logger')('bin', { debug: true })
+
+  // removing falsy fields from an opts
+  Object.keys(opts).forEach(function (name) {
+    if (!opts[name]) {
+      delete opts[name]
+    }
+  })
+
+  // convert files to array
+  // 'a.js, b.js' -> ['a.js', 'b.js']
+  if (opts.files) {
+    opts.files = opts.files.split(',').map(function (part) { return part.trim() })
+  }
+
+  RES(argv._[0], opts).generate(function (err) {
+    if (err) {
+      process.exit(1)
+    }
+
+    if (argv.v || argv.verbose) {
+      log.info({ outputDir: this.opts.output}, 'Styleguide generation complete')
+    }
+
+    if (!opts.dev) {
+      process.exit(0)
+    }
+  })
+})()

@@ -1,0 +1,16 @@
+/**
+ * Main
+ */
+
+.sg-main {
+  position: relative;
+  padding: 15px 15px 0;
+}
+
+@media (--break-sm) {
+  .sg-main {
+    flex: 1;
+    max-width: calc(100% - 240px);
+    padding: 25px 25px 0;
+  }
+}
