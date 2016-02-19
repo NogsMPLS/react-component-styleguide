@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { ButtonToolbar, DropdownButton, MenuItem } from 'react-bootstrap'
+import * as readme from './docs.md'
 
 const BUTTONS = ['Default', 'Primary', 'Success', 'Info', 'Warning', 'Danger', 'Link']
 
@@ -9,15 +10,7 @@ export default class extends Component {
     category: 'Buttons',
     title: 'Button dropdowns',
     description: 'Use `<DropdownButton />` or `<SplitButton />` components to display a button with a dropdown menu.',
-    code: `
-<DropdownButton bsStyle='primary' title='Primary'>
-  <MenuItem eventKey='1'>Action</MenuItem>
-  <MenuItem eventKey='2'>Another action</MenuItem>
-  <MenuItem eventKey='3' active={true}>Active Item</MenuItem>
-  <MenuItem divider />
-  <MenuItem eventKey='4'>Separated link</MenuItem>
-</DropdownButton>
-    `
+    readme: readme
   }
 
   renderDropdownButton (title, i) {

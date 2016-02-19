@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react'
-import Section from '../Section'
+import Ecology from "ecology"
+import * as docgen from "react-docgen"
 import contents from '../../utils/contents'
+
 
 export default class Sections extends Component {
   static displayName = 'SG.Sections'
@@ -38,10 +40,24 @@ export default class Sections extends Component {
 
           Content.styleguide._id = i
 
+          // <Section {...Content.styleguide} key={i}>
+          //     {Content.prototype.render && <Content {...this.props} />}
+          //   </Section>
+          // <Ecology
+          //     overview={Content.styleguide.readme}
+          //     source={docgen.parse(require(Content.styleguide.path))}
+          //     scope={{ React, ReactDOM, Content }}
+          //     playgroundtheme="monokai"
+          //   />
           return (
-            <Section {...Content.styleguide} key={i}>
-              {Content.prototype.render && <Content {...this.props} />}
-            </Section>
+            <section className='sg sg-section' key={i}>
+               <Ecology
+                  overview={Content.styleguide.readme}
+                  source={docgen.parse(require('!!raw!' + Content.styleguide.path))}
+                  scope={{ React, ReactDOM, Content }}
+                  playgroundtheme="monokai"
+                />
+            </section>
           )
         })}
       </div>

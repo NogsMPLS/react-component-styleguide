@@ -7,13 +7,6 @@ export default class extends Component {
     category: 'Buttons',
     title: 'Button groups',
     description: 'Group a series of buttons together on a single line with the button group.',
-    code: `
-<ButtonGroup>
-  <Button>Left</Button>
-  <Button>Middle</Button>
-  <Button>Right</Button>
-</ButtonGroup>
-    `
   }
 
   render () {

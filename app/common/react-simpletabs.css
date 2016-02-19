@@ -1,0 +1,58 @@
+/**
+ * Tabs
+ */
+
+.sg-tabbed {
+  margin-top: 60px;
+}
+
+.tabs-navigation {
+  position: absolute;
+  bottom: 100%;
+  width: 100%;
+  padding-right: 40px;
+}
+
+.tabs-menu {
+  display: table;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  table-layout: fixed;
+  list-style: none;
+}
+
+.tabs-menu-item {
+  display: table-cell;
+  text-align: center;
+}
+
+.tabs-menu-item + .tabs-menu-item {
+  padding-left: 5px;
+}
+
+.tabs-menu-item a {
+  display: block;
+  height: 36px;
+  padding-top: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--gray-light);
+  border: 1px solid transparent;
+  border-bottom: none;
+}
+
+.tabs-menu-item a:hover,
+.tabs-menu-item.is-active a {
+  text-decoration: none;
+  opacity: 1;
+  color: var(--gray-dark);
+  border-color: var(--gray-lighter);
+  border-radius: 2px 2px 0 0;
+  background: var(--white);
+}
+
+.tabs-menu-item.is-active a {
+  font-weight: bold;
+}

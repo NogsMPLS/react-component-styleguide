@@ -1,12 +1,21 @@
 // component-requires.js is a generated file in rsg.js that contains
 // the list of required user-defined components
-import Components from '../../res-tmp/component-requires'
+require('babel-core/register')
+var Components = require('../../res-tmp/component-requires')
 
 // for `commonStrict` module formatter
 // https://babeljs.io/docs/usage/modules/#interop
 let Contents = Components
-  .map((Content) => Content.default || Content)
-  .filter((Component) => Component.styleguide)
+  .map((Content) => {
+    let component = Content.module.default || Content.module;
+    if (component.styleguide) { 
+      component.styleguide.path = Content.path
+    }
+    return component;
+  })
+  .filter((Component) => {
+    return Component.styleguide
+  })
 // compare index numbers
   .sort((a, b) => {
     a = a.styleguide.index
@@ -28,6 +37,8 @@ export default {
 
         components[styleguide.category] = components[styleguide.category] ? components[styleguide.category] : []
         components[styleguide.category].push(styleguide.title)
+        
+
 
         return Content.styleguide.category
       })

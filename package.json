@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "standard && mocha test/**/*.js",
-    "start": "NODE_ENV=development node bin/res 'example/components/**/*.js' -v -d",
+    "start": "cross-env NODE_ENV=development node bin/res 'example/components/**/*.js' -v -d",
     "clean": "rimraf res-tmp/*",
     "styleguide": "node bin/res 'example/components/**/*.js' -v",
     "ghpages": "npm run styleguide -- -r 'react-styleguide-generator-alt' && gh-pages -d styleguide"
@@ -63,6 +63,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
     "bunyan": "^1.4.0",
+    "cross-env": "^1.0.7",
     "css-loader": "^0.23.0",
     "cssnext": "^1.7.1",
     "cssnext-loader": "^1.0.1",

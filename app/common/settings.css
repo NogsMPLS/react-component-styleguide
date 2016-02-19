@@ -1,0 +1,23 @@
+/**
+ * Colors
+ */
+
+:root {
+  --black: #171a1c;
+  --gray-darker: #232629;
+  --gray-dark: #54585c;
+  --gray: #878a8c;
+  --gray-light: #afb1b3;
+  --gray-lighter: #edeff0;
+  --white: #fff;
+
+  --red: #d14;
+  --blue: #0af;
+  --purple: #4463c5;
+}
+
+/**
+ * Media queries breakpoints
+ */
+
+@custom-media --break-sm (min-width: 768px);
