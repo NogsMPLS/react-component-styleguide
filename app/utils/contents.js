@@ -3,13 +3,20 @@
 require('babel-core/register')
 var Components = require('../../res-tmp/component-requires')
 
+function requireFromString(src, filename) {
+  var m = new module.constructor();
+  m.paths = module.paths;
+  m._compile(src, filename);
+  return m.exports;
+}
+
 // for `commonStrict` module formatter
 // https://babeljs.io/docs/usage/modules/#interop
 let Contents = Components
   .map((Content) => {
-    let component = Content.module.default || Content.module;
+    let component = require(Content).default || require(Content);
     if (component.styleguide) { 
-      component.styleguide.path = Content.path
+      component.styleguide.path = Content
     }
     return component;
   })
