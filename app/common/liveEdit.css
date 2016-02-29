@@ -71,7 +71,6 @@ table {
 
 th {
   padding: 0.5rem 1rem;
-
   background-color: #ccc;
   font-weight: bold;
   font-size: 20px;
@@ -111,5 +110,62 @@ th, td {
 }
 .playgroundPreview {
     text-align: center;
-    margin: 20px 0 10px 0;
 }
+.CodeMirror {
+    height: 100%;
+    font-size: 1rem;
+}
+.CodeMirror pre {
+    height: 100%;
+    font-size: 15px;
+}
+
+.Interactive .playground {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.Interactive .playgroundCode {
+    flex: 0 0 100%;
+    vertical-align: top;
+    background: #fff;
+    font-family: 'Source Code Pro', 'Inconsolata', 'Courier New', 'Courier', monospace;
+    font-size: 1rem;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    border: 1px solid #ebe3db;
+}
+
+@media only screen and (min-width: 70em) {
+  .Interactive .playgroundCode {
+    display: flex;
+    flex: 1;
+    margin-right: 12px;
+    margin-bottom: 0;
+  }
+}
+
+.Interactive .playgroundPreview {
+    display: flex;
+    flex: 0 0 100%;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    background: #fff;
+    position: relative;
+    border: 1px solid #ebe3db;
+}
+
+@media only screen and (min-width: 70em) {
+  .Interactive .playgroundPreview {
+    display: flex;
+    flex: 1;
+    margin-left: 12px;
+  }
+}
+
+.Interactive .playgroundStage {
+  width: 100%;
+}
+

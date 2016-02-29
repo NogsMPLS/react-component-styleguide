@@ -61,7 +61,7 @@ Button.displayName = 'Button';
 
 Button.styleguide = {
   index: '1.1',
-  category: 'Buttons!',
+  category: 'Buttons',
   title: 'Buttons',
   readme: readme
 };

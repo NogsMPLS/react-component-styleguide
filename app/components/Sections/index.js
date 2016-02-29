@@ -41,7 +41,7 @@ export default class Sections extends Component {
           // This exists so we can pull out the displayName for props documentation
           Content.styleguide._self = <Content />;
           var displayName = Content.styleguide._self.type.name;
-          var readme = Content.styleguide.readme.default || Content.styleguide.readme;
+          var readme = Content.styleguide && Content.styleguide.readme ? Content.styleguide.readme.default || Content.styleguide.readme: '';
           var docgenMeta = reactPropMeta[displayName];
 
           return (
