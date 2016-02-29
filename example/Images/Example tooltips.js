@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Grid, Row, Col, Image } from 'react-bootstrap'
 
-export default class extends Component {
+export default class ExampleTooltip extends Component {
   static styleguide = {
     index: '3.1',
     category: 'Images',

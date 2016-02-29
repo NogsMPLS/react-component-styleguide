@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 
-export default class extends Component {
+export default class StaticExample extends Component {
   static styleguide = {
     index: '4.1',
     category: 'Modals',

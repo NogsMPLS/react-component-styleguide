@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
 import { ButtonToolbar, DropdownButton, MenuItem } from 'react-bootstrap'
-import * as readme from './docs.md'
+
 
 const BUTTONS = ['Default', 'Primary', 'Success', 'Info', 'Warning', 'Danger', 'Link']
 
-export default class extends Component {
+export default class ButtonDropdowns extends Component {
   static styleguide = {
     index: '1.3',
     category: 'Buttons',
     title: 'Button dropdowns',
     description: 'Use `<DropdownButton />` or `<SplitButton />` components to display a button with a dropdown menu.',
-    readme: readme
   }
 
   renderDropdownButton (title, i) {

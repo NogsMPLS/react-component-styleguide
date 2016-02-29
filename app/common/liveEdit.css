@@ -1,0 +1,115 @@
+* {
+  box-sizing: inherit;
+}
+
+html {
+    position: relative;
+}
+
+
+body {
+    position: relative;
+    padding: 1rem;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.75rem;
+}
+
+h1, h2, h3 {
+  margin-top: 1.5em;
+  font-weight: normal;
+  font-weight: 200;
+  letter-spacing: none;
+}
+
+.Edit {
+  background-color: #224549;
+  line-height: 2;
+  text-align: center;
+}
+
+.Interactive {
+  line-height: 20px;
+}
+
+.tile {
+  display: block;
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+}
+
+.tile img {
+  display: block;
+  width: 100px;
+  height: 100px;
+}
+
+.demo {
+  width: 80%;
+  margin: auto;
+  position: relative;
+}
+
+table {
+  background-color: #eee;
+  border-collapse: collapse;
+  border: 0.25rem solid #305e42;
+  width: 100%;
+  color: #132e3f;
+  text-align: left;
+  font-size: 18px;
+}
+
+th {
+  padding: 0.5rem 1rem;
+
+  background-color: #ccc;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+td {
+  padding: 0.35rem 1rem;
+  vertical-align: top;
+}
+
+th, td {
+  border-bottom: 1px solid #ccc;
+}
+
+.Prop-type, .Prop-required, .Prop-examples, .Prop-default {
+  display: block;
+}
+
+.Prop-name, .Prop-default-value, .Prop-examples-value, code {
+  padding: 0.15rem 0.3rem;
+  border-radius: 0.2em;
+  font-family: 'Inconsolata', 'Anonymous Pro', 'Andale Mono', 'Courier New', Courier, monospace;
+  background-color: rgba(0,0,0,0.1);
+}
+
+.Prop-type{
+  font-style: italic;
+}
+
+.Prop-required {
+  color: red;
+}
+
+.Prop-default-title, .Prop-examples-title {
+  color: #224549;
+  font-weight: bold;
+}
+.playgroundPreview {
+    text-align: center;
+    margin: 20px 0 10px 0;
+}

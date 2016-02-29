@@ -3,15 +3,22 @@
   "private": true,
   "scripts": {
     "start": "npm run styleguide && npm run serve",
-    "styleguide": "node ../bin/res \"components/**/*.js\" -v",
+    "styleguide": "node ../bin/res \"components/**/*.js\" -v -c ./styleguide.js -d",
     "serve": "serve ./styleguide"
   },
   "dependencies": {
     "react": "^0.14.7",
     "react-bootstrap": "0.27.1",
-    "react-dom": "^0.14.7"
+    "react-dom": "^0.14.7",
+    "codemirror": "^5.6.0"
   },
   "devDependencies": {
-    "serve": "^1.4.0"
+    "serve": "^1.4.0",
+    "css-loader": "^0.23.0",
+    "style-loader": "^0.13.0",
+    "postcss-loader": "0.8.1",
+    "autoprefixer": "6.3.3",
+    "postcss-cssnext": "2.4.0",
+    "postcss-import": "8.0.2"
   }
 }

@@ -6,7 +6,7 @@ import { Button } from 'react-bootstrap'
  *
  * (This description is defined above the class definition in code.)
  */
-export default class extends Component {
+export default class AdditionalExampleComments extends Component {
   // displayName is required for props documentation
   static displayName = 'DocCommentExample'
 

@@ -1,11 +1,10 @@
 Button Component
 ===========================
-
 ```playground_norender
 class App extends React.Component {
     render() {
         return (
-            <Button>Hello</Button>
+            <Button>Hello2</Button>
         );
     }
 }
@@ -13,5 +12,4 @@ class App extends React.Component {
 ReactDOM.render(<App/>, mountNode);
 ```
 
-## Automatic Prop Table
-The Prop Table below is automatically generated from comments in the component, see `button.js`.
+### Props

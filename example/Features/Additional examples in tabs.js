@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button } from 'react-bootstrap'
 
-export default class extends Component {
+export default class AdditionalExampleTabs extends Component {
   static styleguide = {
     index: '5.1',
     category: 'Features!',

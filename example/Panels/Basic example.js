@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Panel } from 'react-bootstrap'
 
-export default class extends Component {
+export default class Panels extends Component {
   static styleguide = {
     index: '2.1',
     category: 'Panels',

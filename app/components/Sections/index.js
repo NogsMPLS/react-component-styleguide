@@ -1,7 +1,10 @@
 import React, { Component, PropTypes } from 'react'
+import ReactDOM from 'react-dom'
 import Ecology from "ecology"
 import * as docgen from "react-docgen"
 import contents from '../../utils/contents'
+import utils from '../../../lib/utils'
+import reactPropMeta from '../../../res-tmp/propsdoc'
 
 
 export default class Sections extends Component {
@@ -36,25 +39,17 @@ export default class Sections extends Component {
       <div>
         {this.getContents().map((Content, i) => {
           // This exists so we can pull out the displayName for props documentation
-          Content.styleguide._self = <Content />
+          Content.styleguide._self = <Content />;
+          var displayName = Content.styleguide._self.type.name;
+          var readme = Content.styleguide.readme.default || Content.styleguide.readme;
+          var docgenMeta = reactPropMeta[displayName];
 
-          Content.styleguide._id = i
-
-          // <Section {...Content.styleguide} key={i}>
-          //     {Content.prototype.render && <Content {...this.props} />}
-          //   </Section>
-          // <Ecology
-          //     overview={Content.styleguide.readme}
-          //     source={docgen.parse(require(Content.styleguide.path))}
-          //     scope={{ React, ReactDOM, Content }}
-          //     playgroundtheme="monokai"
-          //   />
           return (
             <section className='sg sg-section' key={i}>
                <Ecology
-                  overview={Content.styleguide.readme}
-                  source={docgen.parse(require('!!raw!' + Content.styleguide.path))}
-                  scope={{ React, ReactDOM, Content }}
+                  overview={readme}
+                  source={docgenMeta}
+                  scope={{ React, ReactDOM, [displayName]: Content }}
                   playgroundtheme="monokai"
                 />
             </section>

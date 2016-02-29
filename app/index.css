@@ -1,6 +1,6 @@
-@import "./common/settings";
-@import "./common/base";
-
+@import "./common/settings.css";
+@import "./common/base.css";
+@import "./common/liveEdit.css";
 @import "./components/Container";
 @import "./components/Header";
 @import "./components/Main";
