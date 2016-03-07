@@ -43,7 +43,6 @@ export default class Sections extends Component {
           var displayName = Content.styleguide._self.type.name;
           var readme = Content.styleguide && Content.styleguide.readme ? Content.styleguide.readme.default || Content.styleguide.readme: '';
           var docgenMeta = reactPropMeta[displayName];
-
           return (
             <section className='sg sg-section' key={i}>
                <Ecology

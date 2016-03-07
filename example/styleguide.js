@@ -5,7 +5,6 @@ var postcssImport = require('postcss-import');
 module.exports = {
   "title": "React Easy Style Guide",
   "files": [
-    "//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css",
     "example.css"
   ],
   "babelConfig": {

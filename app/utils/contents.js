@@ -1,6 +1,7 @@
 // component-requires.js is a generated file in rsg.js that contains
 // the list of required user-defined components
 import Components from '../../res-tmp/component-requires'
+import reactPropMeta from '../../res-tmp/propsdoc'
 
 // for `commonStrict` module formatter
 // https://babeljs.io/docs/usage/modules/#interop
@@ -14,6 +15,26 @@ let Contents = Components
 
     return !a ? 1 : !b ? -1 : a.toString().localeCompare(b)
   })
+  //create example readme if not included for ecology live demo
+  .map((Component) => {
+    if (Component.styleguide.readme) {
+        return Component
+    } else if (reactPropMeta[Component.name]) {
+
+        Component.styleguide.title = Component.styleguide.title || Component.name;
+        var description = Component.styleguide.description || reactPropMeta[Component.name].description;
+        var code = Component.styleguide.example || '\n<' + Component.name + '></' + Component.name + '>\n';
+        Component.styleguide.readme =   '# ' + Component.styleguide.title + '\n' +
+                                        '```playground\n' +
+                                        code +
+                                        '```\n' +
+                                        description + '\n' +
+                                        '### Props';
+         return Component
+    } else {
+        return Component
+    }
+  });
 
 export default {
   /**

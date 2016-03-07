@@ -2,41 +2,52 @@ import React, { Component, PropTypes } from 'react'
 import { ButtonToolbar, DropdownButton, MenuItem } from 'react-bootstrap'
 
 
-const BUTTONS = ['Default', 'Primary', 'Success', 'Info', 'Warning', 'Danger', 'Link']
+const BUTTONS = ['Default', 'Primary', 'Success', 'Info', 'Warning', 'Danger', 'Link'];
 
 class ButtonDropdowns extends Component {
+  static displayName = 'ButtonDropdowns';
   static styleguide = {
-    index: '1.2',
+    index: '1.3',
     category: 'Buttons',
     title: 'Button dropdowns',
     description: 'Use `<DropdownButton />` or `<SplitButton />` components to display a button with a dropdown menu.',
-  }
-
-  renderDropdownButton (title, i) {
-    return (
-      <DropdownButton bsStyle={title.toLowerCase()} title={title} key={i} id={`dropdown-basic-${i}`}>
-        <MenuItem eventKey='1'>Action</MenuItem>
-        <MenuItem eventKey='2'>Another action</MenuItem>
-        <MenuItem eventKey='3' active={true}>Active Item</MenuItem>
-        <MenuItem divider />
-        <MenuItem eventKey='4'>Separated link</MenuItem>
-      </DropdownButton>
-    )
-  }
+    example: `
+    <ButtonDropdowns>
+        <ButtonToolbar>
+            <DropdownButton bsStyle='primary' title='primary' id='dropdown-basic-2'>
+                <MenuItem eventKey='1'>Action</MenuItem>
+                <MenuItem eventKey='2'>Another action</MenuItem>
+                <MenuItem eventKey='3' active={true}>Active Item</MenuItem>
+                <MenuItem divider />
+                <MenuItem eventKey='4'>Separated link</MenuItem>
+            </DropdownButton>
+        </ButtonToolbar>
+    </ButtonDropdowns>`
+  };
 
   render () {
     return (
       <ButtonToolbar>
-        {BUTTONS.map(this.renderDropdownButton)}
+        {BUTTONS.map((title, i) => (
+            <DropdownButton bsStyle={title.toLowerCase()} title={title} key={i} id={`dropdown-basic-${i}`}>
+                <MenuItem eventKey='1'>Action</MenuItem>
+                <MenuItem eventKey='2'>Another action</MenuItem>
+                <MenuItem eventKey='3' active={true}>Active Item</MenuItem>
+                <MenuItem divider />
+                <MenuItem eventKey='4'>Separated link</MenuItem>
+            </DropdownButton>
+        ))}
       </ButtonToolbar>
     )
   }
 }
 
-ButtonDropdowns.displayName = 'ButtonDropdowns';
-
 ButtonDropdowns.propTypes = {
-  children: PropTypes.node,
+	/**
+     * Anything that can be in a button. Usually text, but could also be icons/glyphs.
+     * @examples 'Save', 'Cancel'
+     */
+    children: PropTypes.node,
     /**
      * define a custom css class name
      * @examples "btn", "btn-active"
@@ -82,6 +93,7 @@ ButtonDropdowns.propTypes = {
 };
 
 ButtonDropdowns.defaultProps = {
+  children: 'Default Button',
   className: '',
   disabled: false,
   outline: false,

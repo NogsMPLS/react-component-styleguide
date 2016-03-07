@@ -1,15 +1,8 @@
 Button Component
 ===========================
-```playground_norender
-class App extends React.Component {
-    render() {
-        return (
-            <Button>Hello2</Button>
-        );
-    }
-}
+```playground
 
-ReactDOM.render(<App/>, mountNode);
+<Button>Hello2</Button>
 ```
 
 ### Props

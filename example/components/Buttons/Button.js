@@ -1,10 +1,9 @@
 import React, { PropTypes } from 'react';
 import ClassNames from 'classnames/bind';
-import * as readme from '!!raw!./docs.md'
 import style from './button.css';
 
 /**
- * Component Descriptions
+ * Creates a reusable, customizable button.
  */
 const Button = ({className, outline, href, loading, primary, secondary, success, warning, danger, link, large, small, block, disabled, children, ...others}) => {
 
@@ -61,13 +60,15 @@ Button.displayName = 'Button';
 
 Button.styleguide = {
   index: '1.1',
-  category: 'Buttons',
-  title: 'Buttons',
-  readme: readme
+  category: 'Buttons'
 };
 
 Button.propTypes = {
-  children: PropTypes.node,
+	/**
+     * Anything that can be in a button. Usually text, but could also be icons/glyphs.
+     * @examples 'Save', 'Cancel'
+     */
+    children: PropTypes.node,
     /**
      * define a custom css class name
      * @examples "btn", "btn-active"
@@ -113,6 +114,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
+  children: 'Default Button',
   className: '',
   disabled: false,
   outline: false,
