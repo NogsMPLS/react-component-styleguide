@@ -3,3 +3,5 @@ styleguide
 res-tmp
 .idea
 npm-debug.log
+.vscode
+jsconfig.json
