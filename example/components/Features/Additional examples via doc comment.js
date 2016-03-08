@@ -8,14 +8,13 @@ import { Button } from 'react-bootstrap'
  */
 export default class AdditionalExampleComments extends Component {
   // displayName is required for props documentation
-  static displayName = 'DocCommentExample'
+  static displayName = 'AdditionalExampleComments';
 
   static styleguide = {
     index: '5.2',
     category: 'Features!',
-    title: 'Additional examples via doc comment',
-    code: `<Button block bsStyle='primary'>Primary</Button>`
-  }
+    title: 'Additional examples via doc comment'
+  };
 
   static propTypes = {
     /**
@@ -29,10 +28,11 @@ export default class AdditionalExampleComments extends Component {
   }
 
   static defaultProps = {
-    bsStyle: 'default'
+    bsStyle: 'default',
+    children: 'Primary'
   }
 
   render () {
-    return <Button block bsStyle='primary'>Primary</Button>
+    return <button block bsStyle='primary'>Primary</button>
   }
 }
