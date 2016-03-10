@@ -56,6 +56,7 @@
     ]
   },
   "dependencies": {
+    "autoprefixer": "6.3.3",
     "babel-core": "^6.6.0",
     "babel-loader": "^6.2.4",
     "babel-plugin-react-transform": "^2.0.0",
@@ -82,10 +83,16 @@
     "mustache": "^2.1.2",
     "object-assign": "^4.0.1",
     "page": "^1.6.4",
+    "postcss-cssnext": "2.4.0",
+    "postcss-import": "8.0.2",
+    "postcss-loader": "0.8.1",
     "rekuire": "^0.1.9",
     "raw-loader": "^0.5.1",
     "react-bootstrap": "0.27.1",
     "react-docgen": "^2.7.0",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-router": "2.0.0",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.1",
     "redbox-react": "^1.2.0",
@@ -94,19 +101,13 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.12.9",
     "webpack-dev-middleware": "^1.4.0",
-    "webpack-hot-middleware": "^2.6.0",
-    "postcss-loader": "0.8.1",
-    "autoprefixer": "6.3.3",
-    "postcss-cssnext": "2.4.0",
-    "postcss-import": "8.0.2"
+    "webpack-hot-middleware": "^2.6.0"
   },
   "devDependencies": {
     "babel-eslint": "^4.0.5",
     "eslint-plugin-react": "^3.10.0",
     "gh-pages": "^0.4.0",
     "mocha": "^2.2.5",
-    "react": "^0.14.3",
-    "react-dom": "^0.14.3",
     "rimraf": "^2.4.0",
     "standard": "^5.4.1",
     "uglify-js": "^2.4.23"
