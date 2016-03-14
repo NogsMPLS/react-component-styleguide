@@ -6,7 +6,6 @@ import contents from '../../utils/contents'
 import utils from '../../../lib/utils'
 import reactPropMeta from '../../../res-tmp/propsdoc'
 
-
 class Sections extends Component {
   getContents () {
     let params = this.props.params;

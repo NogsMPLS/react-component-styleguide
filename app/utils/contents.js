@@ -17,9 +17,7 @@ let Contents = Components
   })
   //create example readme if not included for ecology live demo
   .map((Component) => {
-    if (Component.styleguide.readme) {
-        return Component
-    } else if (reactPropMeta[Component.name]) {
+    if (reactPropMeta[Component.name]) {
 
         Component.styleguide.title = Component.styleguide.title || Component.name;
         var description = Component.styleguide.description || reactPropMeta[Component.name].description;
