@@ -7,23 +7,17 @@ import utils from '../../../lib/utils'
 import reactPropMeta from '../../../res-tmp/propsdoc'
 
 
-export default class Sections extends Component {
-  static displayName = 'SG.Sections'
-
-  static propTypes = {
-    ctx: PropTypes.object.isRequired
-  }
-
+class Sections extends Component {
   getContents () {
-    let params = this.props.ctx.params
-    let data = {}
+    let params = this.props.params;
+    let data = {};
 
-    if (params.query) {
+    if (params && params.query) {
       data = {
         query: params.query,
         keys: ['category', 'title', 'description', 'code']
       }
-    } else if (params.category) {
+    } else if (params && params.category) {
       data = {
         query: params.title || params.category,
         keys: params.title ? ['title'] : ['category'],
@@ -58,3 +52,7 @@ export default class Sections extends Component {
     )
   }
 }
+
+Sections.displayName = 'SG.Sections';
+
+export default Sections;

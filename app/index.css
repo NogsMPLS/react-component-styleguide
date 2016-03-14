@@ -2,7 +2,7 @@
 @import "./common/base.css";
 @import "./common/liveEdit.css";
 @import "./components/Container";
-@import "./components/Header";
+@import "./components/Sidebar";
 @import "./components/Main";
 @import "./components/Nav";
 @import "./components/Search";

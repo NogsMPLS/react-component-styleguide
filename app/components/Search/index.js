@@ -1,14 +1,7 @@
 import React, { Component, PropTypes } from 'react'
-import page from 'page'
+import { browserHistory } from 'react-router'
 
-export default class Search extends Component {
-  static displayName = 'SG.Search'
-
-  static propTypes = {
-    value: PropTypes.string,
-    defaultValue: PropTypes.string
-  }
-
+class Search extends Component {
   constructor (props) {
     super(props)
   }
@@ -17,14 +10,10 @@ export default class Search extends Component {
    * @param {Event} e
    */
   onSubmit (e) {
-    let val = this.refs.q.value
-    let url = `/search/${val}`
-
-    e.preventDefault()
-
-    if (url !== page.current) {
-      page.show(`/search/${val}`)
-    }
+    e.preventDefault();
+    const val = e.target.elements[1].value;
+    const path = `/search/${val}`;
+    browserHistory.push(path)
   }
 
   render () {
@@ -36,12 +25,18 @@ export default class Search extends Component {
         <input
           className='sg sg-search-input'
           type='text'
-          ref='q'
           placeholder='Search Components'
           autoFocus
-          defaultValue={this.props.defaultValue}
         />
       </form>
     )
   }
 }
+
+Search.displayName = 'SG.Search';
+Search.propTypes = {
+  value: PropTypes.string,
+  defaultValue: PropTypes.string
+};
+
+export default Search;

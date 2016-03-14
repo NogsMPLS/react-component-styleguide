@@ -1,12 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 
-export default class Container extends Component {
-  static displayName = 'SG.Container'
-
-  static propTypes = {
-    children: PropTypes.node
-  }
-
+class Container extends Component {
   render () {
     return (
       <div className='sg-container'>
@@ -15,3 +9,10 @@ export default class Container extends Component {
     )
   }
 }
+
+Container.displayName = 'SG.Container';
+Container.propTypes = {
+  children: PropTypes.node
+};
+
+export default Container;
