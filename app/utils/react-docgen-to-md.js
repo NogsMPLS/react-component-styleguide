@@ -1,5 +1,5 @@
 import marked from 'marked'
-import reactPropMeta from '../../res-tmp/propsdoc'
+import reactPropMeta from '../../rcs-tmp/propsdoc'
 
 /**
  * This function takes the output of react-docgen and generates some compact markdown

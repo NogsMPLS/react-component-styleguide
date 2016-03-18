@@ -4,7 +4,7 @@ import Ecology from "ecology"
 import * as docgen from "react-docgen"
 import contents from '../../utils/contents'
 import utils from '../../../lib/utils'
-import reactPropMeta from '../../../res-tmp/propsdoc'
+import reactPropMeta from '../../../rcs-tmp/propsdoc'
 
 class Sections extends Component {
   getContents () {

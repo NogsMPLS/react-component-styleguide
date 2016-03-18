@@ -1,7 +1,7 @@
 // component-requires.js is a generated file in rsg.js that contains
 // the list of required user-defined components
-import Components from '../../res-tmp/component-requires'
-import reactPropMeta from '../../res-tmp/propsdoc'
+import Components from '../../rcs-tmp/component-requires'
+import reactPropMeta from '../../rcs-tmp/propsdoc'
 
 // for `commonStrict` module formatter
 // https://babeljs.io/docs/usage/modules/#interop
