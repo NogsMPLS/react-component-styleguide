@@ -10,8 +10,7 @@
     "test": "standard && mocha test/**/*.js",
     "start": "cross-env NODE_ENV=development node bin/rcs 'example/components/**/*.js' -v -d",
     "clean": "rimraf rcs-tmp/*",
-    "styleguide": "node bin/rcs 'example/components/**/*.js' -v",
-    "ghpages": "npm run styleguide -- -r 'react-styleguide-generator-alt' && gh-pages -d styleguide"
+    "styleguide": "node bin/rcs 'example/components/**/*.js' -v"
   },
   "files": [
     ".babelrc",
