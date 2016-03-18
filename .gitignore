@@ -1,6 +1,6 @@
 node_modules
 styleguide
-res-tmp
+rcs-tmp
 .idea
 npm-debug.log
 .vscode
