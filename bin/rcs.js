@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var RES = require('../lib/res')
+var RCS = require('../lib/rcs')
 var argv = require('minimist')(process.argv.slice(2))
 var log
 
@@ -41,7 +41,7 @@ var log
     opts.files = opts.files.split(',').map(function (part) { return part.trim() })
   }
 
-  RES(argv._[0], opts).generate(function (err) {
+  RCS(argv._[0], opts).generate(function (err) {
     if (err) {
       process.exit(1)
     }

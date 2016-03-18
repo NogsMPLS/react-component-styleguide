@@ -1,16 +1,16 @@
 {
-  "name": "react-easy-styleguide",
+  "name": "react-component-styleguide",
   "version": "0.0.0",
   "description": "Just annotated your actual components and make your docs from that with 1 command.",
-  "main": "lib/res.js",
+  "main": "lib/rcs.js",
   "bin": {
-    "res": "bin/res"
+    "rcs": "bin/rcs"
   },
   "scripts": {
     "test": "standard && mocha test/**/*.js",
-    "start": "cross-env NODE_ENV=development node bin/res 'example/components/**/*.js' -v -d",
-    "clean": "rimraf res-tmp/*",
-    "styleguide": "node bin/res 'example/components/**/*.js' -v",
+    "start": "cross-env NODE_ENV=development node bin/rcs 'example/components/**/*.js' -v -d",
+    "clean": "rimraf rcs-tmp/*",
+    "styleguide": "node bin/rcs 'example/components/**/*.js' -v",
     "ghpages": "npm run styleguide -- -r 'react-styleguide-generator-alt' && gh-pages -d styleguide"
   },
   "files": [
@@ -24,7 +24,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NogsMPLS/react-easy-styleguide.git"
+    "url": "git+https://github.com/NogsMPLS/react-component-styleguide.git"
   },
   "keywords": [
     "component",
@@ -45,9 +45,9 @@
   "author": "natsmith",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/NogsMPLS/react-easy-styleguide/issues"
+    "url": "https://github.com/NogsMPLS/react-component-styleguide/issues"
   },
-  "homepage": "https://github.com/NogsMPLS/react-easy-styleguide#readme",
+  "homepage": "https://github.com/NogsMPLS/react-component-styleguide#readme",
   "standard": {
     "parser": "babel-eslint",
     "ignore": [

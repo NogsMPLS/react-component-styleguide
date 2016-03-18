@@ -3,7 +3,7 @@ var cssnext = require('postcss-cssnext');
 var postcssImport = require('postcss-import');
 
 module.exports = {
-  "title": "React Easy Style Guide",
+  "title": "React Component Style Guide",
   "files": [
     "example.css"
   ],
