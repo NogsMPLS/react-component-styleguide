@@ -1,6 +1,6 @@
 {
   "name": "react-component-styleguide",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Just annotated your actual components and make your docs from that with 1 command.",
   "main": "lib/rcs.js",
   "bin": {
