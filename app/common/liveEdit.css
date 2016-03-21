@@ -27,7 +27,7 @@ h3 {
 }
 
 h1, h2, h3 {
-  margin-top: 1.5em;
+  margin-top: 1rem;
   font-weight: normal;
   font-weight: 200;
   letter-spacing: none;
@@ -64,18 +64,15 @@ h1, h2, h3 {
 }
 
 table {
-  background-color: #eee;
   border-collapse: collapse;
-  border: 0.25rem solid #305e42;
   width: 100%;
   color: #132e3f;
   text-align: left;
-  font-size: 18px;
+  font-size: 1rem;
 }
 
 th {
   padding: 0.5rem 1rem;
-  background-color: #ccc;
   font-weight: bold;
   font-size: 20px;
 }
@@ -86,7 +83,7 @@ td {
 }
 
 th, td {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #eee;
 }
 
 .Prop-type, .Prop-required, .Prop-examples, .Prop-default {
@@ -94,7 +91,7 @@ th, td {
 }
 
 .Prop-name, .Prop-default-value, .Prop-examples-value, code {
-  padding: 0.15rem 0.3rem;
+  padding: 0 0.3rem;
   border-radius: 0.2em;
   font-family: 'Inconsolata', 'Anonymous Pro', 'Andale Mono', 'Courier New', Courier, monospace;
   background-color: rgba(0,0,0,0.1);
@@ -106,6 +103,13 @@ th, td {
 
 .Prop-required {
   color: red;
+}
+.Prop-default {
+    color: blue;
+}
+
+.Prop-name {
+    color: green;
 }
 
 .Prop-default-title, .Prop-examples-title {
@@ -172,4 +176,9 @@ th, td {
 .Interactive .playgroundStage {
   width: 100%;
 }
-
+.Prop-description {
+    font-size: 1rem;
+}
+.Prop:nth-of-type(odd) {
+    background-color: #fafafa;
+}

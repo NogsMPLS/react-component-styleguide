@@ -1,0 +1,29 @@
+/**
+ * Section
+ */
+
+.sg-section {
+  overflow: hidden;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  padding: 20px;
+  background: var(--white);
+  box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+}
+
+.sg-section > :first-child {
+  border-top: none;
+}
+
+@media (--break-sm) {
+  .sg-section {
+    margin-bottom: 25px;
+  }
+}
+
+/**
+ * Heading
+ */
+.sg-section h1 {
+  margin-top: .2rem
+}

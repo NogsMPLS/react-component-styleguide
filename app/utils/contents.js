@@ -41,11 +41,11 @@ let Contents = Components
 
 
         Component.styleguide.readme =   '# ' + Component.styleguide.title + '\n' +
+                                        description + '\n' +
                                         '```playground\n' +
                                         code +
                                         '```\n' +
-                                        description + '\n' +
-                                        '### Props';
+                                        '### Properties';
          return Component
     } else {
         return Component

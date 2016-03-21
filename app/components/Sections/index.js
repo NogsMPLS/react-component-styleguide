@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
-import Ecology from "ecology"
+import Ecology from "../Section"
 import * as docgen from "react-docgen"
 import contents from '../../utils/contents'
 import utils from '../../../lib/utils'

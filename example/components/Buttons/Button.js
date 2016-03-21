@@ -65,43 +65,43 @@ Button.styleguide = {
 
 Button.propTypes = {
 	/**
-     * Anything that can be in a button. Usually text, but could also be icons/glyphs.
+     * Anything that can be in a button. Usually text, but could also be icons/glyphs
      * @examples 'Save', 'Cancel'
      */
-    children: PropTypes.node,
+  children: PropTypes.node.isRequired,
     /**
-     * define a custom css class name
+     * Define a custom css class name
      * @examples "btn", "btn-active"
      */
   className: PropTypes.string,
     /**
-     * set button to disabled
+     * Set button to disabled
      * @examples <Button disabled>
      */
   disabled: PropTypes.bool,
     /**
-     * use outline styled button
+     * Use outline styled button
      * @examples <Button outline>
      */
   outline: PropTypes.bool,
     /**
-     * define button href if anchor
+     * Define button href if anchor
      * @examples '#', 'http://some-website.com/'
      */
   href: PropTypes.string,
     /**
-     * set loading animation on button
+     * Set loading animation on button
      * @examples <Button loading>
      */
   loading: PropTypes.bool,
     /**
-     * use primary style button (button is set to this by default)
+     * Use primary style button (button is set to this by default)
      * @examples <Button primary>
      */
   primary: PropTypes.bool,
   type: PropTypes.string,
     /**
-     * use secondary style button
+     * Use secondary style button
      * @examples <Button secondary>
      */
   secondary: PropTypes.bool,
