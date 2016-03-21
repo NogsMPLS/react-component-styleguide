@@ -272,7 +272,7 @@ Inject file references into index.html if the files with the extension `.css` or
 Type: `String|Object`  
 Default: `styleguide.json`
 
-The entire range of RCS API options is allowed. [Usage example](https://github.com/theogravity/react-styleguide-generator-alt/blob/master/example/styleguide.json).
+The entire range of RCS API options is allowed.
 
 - An object can be passed instead of a filename that contains the RCS API options.
 - A Javascript file can be passed in that exports an object instead:
@@ -337,7 +337,7 @@ Generate the files and their dependencies into a styleguide output.
 Get the demo running locally:
 
 ``` sh
-git clone git@github.com:theogravity/react-styleguide-generator-alt.git
+git clone git@github.com:NogsMPLS/react-component-styleguide.git
 cd react-component-styleguide/example/
 npm install
 npm start
