@@ -1,6 +1,9 @@
 {
   "name": "react-component-styleguide",
   "version": "0.0.10",
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org/"
+  },
   "description": "Just annotated your actual components and make your docs from that with 1 command.",
   "main": "lib/rcs.js",
   "bin": {
