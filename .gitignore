@@ -5,3 +5,4 @@ rcs-tmp
 npm-debug.log
 .vscode
 jsconfig.json
+.npmrc
