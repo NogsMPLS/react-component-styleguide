@@ -1,4 +1,4 @@
-Usage: res [input] [options]
+Usage: rcs [input] [options]
 
 Options:
   -o, --output     Output directory            ['styleguide']
@@ -12,4 +12,4 @@ Options:
   -d, --dev        Start server with webpack hmr [3000]
 
 Examples:
-  res 'example/**/*.js' -t 'My Style Guide' -f 'a.css, a.js'
+  rcs 'example/**/*.js' -t 'My Style Guide' -f 'a.css, a.js'
