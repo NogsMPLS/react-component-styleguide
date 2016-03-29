@@ -34,7 +34,22 @@ let Contents = Components
         }
 
         if ( !Component.styleguide.example ) {
-            code = '\n<' + Component.name + '></' + Component.name + '>\n';
+            var propString = '';
+            var childrenString = '';
+            for (var key in reactPropMeta[Component.name].props) {
+                if (key != "children" && reactPropMeta[Component.name].props[key].required && reactPropMeta[Component.name].props[key].defaultValue){
+                    propString += ` ${key}=${reactPropMeta[Component.name].props[key].defaultValue.value}`
+                } else if (key == "children" && reactPropMeta[Component.name].props[key].defaultValue) {
+
+                    if (reactPropMeta[Component.name].props[key].defaultValue.value.substr(0, 1) === "'" && reactPropMeta[Component.name].props[key].defaultValue.value.substr(-1) === "'"){
+                        childrenString = '\n    '+reactPropMeta[Component.name].props[key].defaultValue.value.slice(1, -1)+'\n';
+                    } else {
+                        childrenString = '\n    '+reactPropMeta[Component.name].props[key].defaultValue.value+'\n';
+                    }
+                }
+            }
+
+            code = '\n<' + Component.name + propString+'>'+childrenString+'</' + Component.name + '>\n';
         } else if (Component.styleguide.example) {
             code = Component.styleguide.example;
         }
