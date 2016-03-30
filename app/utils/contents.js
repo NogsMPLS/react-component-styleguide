@@ -55,9 +55,12 @@ let Contents = Components
         }
 
 
+        Component.styleguide.wrappedExample = Component.styleguide.wrappedExample ? 'playground_norender' : 'playground';
+
+
         Component.styleguide.readme =   '# ' + Component.styleguide.title + '\n' +
                                         description + '\n' +
-                                        '```playground\n' +
+                                        '```'+Component.styleguide.wrappedExample+'\n' +
                                         code +
                                         '```\n' +
                                         '### Properties';

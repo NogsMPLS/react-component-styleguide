@@ -91,6 +91,7 @@ The styleguide static that is attached to Button in that example is only necessa
   b. `category`: Components category name. (optional)
 2. Code Example
   a. `example`: Code example (optional). Not specifying this will auto-generate an example that is just `<Component></Component>`.
+  b. `wrappedExample`: Wrapped component. Set to `true` if you need to render you component with wrapped state to really show a good example.
 
 ### Generating the documentation
 
