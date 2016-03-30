@@ -9,12 +9,19 @@ let Contents = Components
   .map((Content) => Content.default || Content)
 //  .filter((Component) => Component.styleguide)
 //// compare index numbers
-//  .sort((a, b) => {
-//    a = a.styleguide.index
-//    b = b.styleguide.index
-//
-//    return !a ? 1 : !b ? -1 : a.toString().localeCompare(b)
-//  })
+ .sort((a, b) => {
+
+   a.styleguide = a.styleguide ? a.styleguide : {};
+   b.styleguide = b.styleguide ? b.styleguide : {};
+   
+   a.styleguide.index = a.styleguide.index ? a.styleguide.index : '99.1';
+   b.styleguide.index = b.styleguide.index ? b.styleguide.index : '99.1';
+
+   a = a.styleguide.index;
+   b = b.styleguide.index;
+
+   return !a ? 1 : !b ? -1 : a.toString().localeCompare(b)
+ })
   //create example readme if not included for ecology live demo
   .map((Component) => {
     if (reactPropMeta[Component.name]) {
