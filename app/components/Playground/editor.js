@@ -25,6 +25,8 @@ const Editor = React.createClass({
   },
   componentDidMount() {
      this.refs.ace.editor.on("change", this._handleChange);
+     this.refs.ace.editor.session.setUseWorker(false);
+     this.refs.ace.editor.session.toggleFoldWidget();
   },
 
   componentDidUpdate() {
@@ -49,15 +51,14 @@ const Editor = React.createClass({
           theme={this.props.theme}
           onChange={this._handleChange}
           value={this.props.codeText}
-          showGutter={false}
           showPrintMargin={false}
           name={title}
-          editorProps={{$blockScrolling: true}}
+          editorProps={{$blockScrolling: Infinity}}
           enableBasicAutocompletion={true}
           enableLiveAutocompletion={true}
           width="100%"
           maxLines={Infinity}
-          fontSize="15px"
+          fontSize={15}
         />
       </div>
     );
