@@ -1,6 +1,6 @@
 {
   "name": "react-component-styleguide",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "publishConfig": {
     "registry": "http://registry.npmjs.org/"
   },
