@@ -26,7 +26,38 @@ const Editor = React.createClass({
   componentDidMount() {
      this.refs.ace.editor.on("change", this._handleChange);
      this.refs.ace.editor.session.setUseWorker(false);
-     this.refs.ace.editor.session.toggleFoldWidget();
+     this.refs.ace.editor.session.__proto__.foldRegion = function(startRow, endRow, depth) {
+      if (depth == undefined)
+          depth = 100000; // JSON.stringify doesn't hanle Infinity
+      var foldWidgets = this.foldWidgets;
+      if (!foldWidgets)
+          return; // mode doesn't support folding
+      endRow = endRow || this.getLength();
+      startRow = startRow || 0;
+      for (var row = startRow; row < endRow; row++) {
+          if (foldWidgets[row] == null)
+              foldWidgets[row] = this.getFoldWidget(row);
+          if (foldWidgets[row] != "start") continue;
+          if (!/#region/.test(this.getLine(row))) continue
+          var range = this.getFoldWidgetRange(row);
+          // sometimes range can be incompatible with existing fold
+          // TODO change addFold to return null istead of throwing
+          if (range && range.isMultiLine()
+              && range.end.row <= endRow
+              && range.start.row >= startRow
+          ) {
+              row = range.end.row;
+              try {
+                  // addFold can change the range
+                  var fold = this.addFold("...", range);
+                  if (fold)
+                      fold.collapseChildren = depth;
+              } catch(e) {}
+          }
+      }
+    };
+    console.log(this.refs.ace.editor.session);
+   this.refs.ace.editor.session.foldRegion();
   },
 
   componentDidUpdate() {
