@@ -13,7 +13,7 @@ let Contents = Components
 
    a.styleguide = a.styleguide ? a.styleguide : {};
    b.styleguide = b.styleguide ? b.styleguide : {};
-   
+
    a.styleguide.index = a.styleguide.index ? a.styleguide.index : '99.1';
    b.styleguide.index = b.styleguide.index ? b.styleguide.index : '99.1';
 
@@ -60,14 +60,14 @@ let Contents = Components
         } else if (Component.styleguide.example) {
             code = Component.styleguide.example;
         }
-
-
-        Component.styleguide.wrappedExample = Component.styleguide.wrappedExample ? 'playground_norender' : 'playground';
-
+        Component.styleguide.description = description;
+        Component.styleguide.code = code;
+        Component.styleguide.wrappedExample = Component.styleguide.wrappedExample ? true : false;
+        Component.styleguide.renderType = Component.styleguide.renderType ? 'playground_norender' : 'playground';
 
         Component.styleguide.readme =   '# ' + Component.styleguide.title + '\n' +
                                         description + '\n' +
-                                        '```'+Component.styleguide.wrappedExample+'\n' +
+                                        '```'+Component.styleguide.renderType+'\n' +
                                         code +
                                         '```\n' +
                                         '### Properties';

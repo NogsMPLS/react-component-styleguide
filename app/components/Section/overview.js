@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import marked from "marked";
-import Playground from "component-playground";
+import Playground from '../Playground';
+
 
 class Overview extends React.Component {
   componentDidMount() {
@@ -24,6 +25,9 @@ class Overview extends React.Component {
               codeText={source}
               scope={this.props.scope}
               noRender={true}
+              title={this.props.title}
+              description={this.props.description}
+              idx={this.props.idx}
               theme={this.props.playgroundtheme ? this.props.playgroundtheme : "monokai"}/>
           </div>,
           playgrounds[p].parentNode
@@ -41,6 +45,9 @@ class Overview extends React.Component {
               codeText={source}
               scope={this.props.scope}
               noRender={false}
+              title={this.props.title}
+              idx={this.props.idx}
+              description={this.props.description}
               theme={this.props.playgroundtheme ? this.props.playgroundtheme : "monokai"}/>
           </div>,
           playgroundsNoRender[p].parentNode

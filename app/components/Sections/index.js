@@ -39,10 +39,15 @@ class Sections extends Component {
           return (
             <section className='sg sg-section' key={i}>
                <Ecology
+                  wrappedExample={Content.styleguide.wrappedExample}
                   overview={readme}
+                  title={Content.styleguide.title}
+                  description={Content.styleguide.description}
+                  code={Content.styleguide.code}
                   source={docgenMeta}
                   scope={{ React, ReactDOM, [displayName]: Content }}
                   playgroundtheme="monokai"
+                  idx={i}
                 />
             </section>
           )

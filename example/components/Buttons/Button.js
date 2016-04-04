@@ -60,7 +60,50 @@ Button.displayName = 'Button';
 
 Button.styleguide = {
   index: '1.1',
-  category: 'Buttons'
+  category: 'Buttons',
+  example: `
+  <section>
+    <p>Regular Buttons</p>
+    <Button>Button</Button>
+    <Button>Secondary</Button>
+    <Button>Success</Button>
+    <Button>Warning</Button>
+    <Button>Danger</Button>
+
+    <p>Disabled Regular Buttons</p>
+    <Button disabled >Button</Button>
+    <Button disabled>Secondary</Button>
+    <Button disabled >Success</Button>
+    <Button disabled >Warning</Button>
+    <Button disabled >Danger</Button>
+
+    <p>Outline Buttons</p>
+    <Button>Button</Button>
+    <Button>Secondary</Button>
+    <Button>Success</Button>
+    <Button>Warning</Button>
+    <Button>Danger</Button>
+
+    <p>Disabled Outline Buttons</p>
+    <Button disabled>Button</Button>
+    <Button disabled>Secondary</Button>
+    <Button disabled>Success</Button>
+    <Button disabled>Warning</Button>
+    <Button disabled>Danger</Button>
+
+    <p>Large Buttons</p>
+    <Button>Button</Button>
+    <Button>Secondary</Button>
+
+    <p>Small Buttons</p>
+    <Button>Button</Button>
+    <Button>Secondary</Button>
+
+    <p>Block Level Buttons</p>
+    <Button>Button</Button>
+    <Button>Secondary</Button>
+  </section>
+  `
 };
 
 Button.propTypes = {

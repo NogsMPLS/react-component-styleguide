@@ -17,9 +17,15 @@ export default class Ecology extends React.Component {
       <div className="Ecology">
         <div className="Overview">
           <Overview
+            wrappedExample={this.props.wrappedExample}
             markdown={this.props.overview}
+            title={this.props.title}
+            description={this.props.description}
+            code={this.props.code}
             scope={this.props.scope}
-            playgroundtheme={this.props.playgroundtheme}/>
+            playgroundtheme={this.props.playgroundtheme}
+            idx={this.props.idx}
+            />
         </div>
         {this.renderPropTable(this.props.source)}
       </div>
@@ -31,5 +37,7 @@ Ecology.propTypes = {
   overview: React.PropTypes.string,
   playgroundtheme: React.PropTypes.string,
   source: React.PropTypes.object,
-  scope: React.PropTypes.object
+  scope: React.PropTypes.object,
+  wrappedExample: React.PropTypes.bool,
+  code: React.PropTypes.string
 };
