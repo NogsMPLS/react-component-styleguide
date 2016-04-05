@@ -58,8 +58,6 @@ const Editor = React.createClass({
               try {
                   // addFold can change the range
                   var fold = this.addFold("...", range);
-                  if (fold)
-                      fold.collapseChildren = depth;
               } catch(e) {}
           }
       }
