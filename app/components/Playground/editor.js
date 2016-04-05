@@ -13,6 +13,14 @@ function camelize(str) {
   });
 }
 
+function isCommentFold(line) {
+  var isAFold = false;
+  if (/^\s*(\/\*|\/\/)#?region\b/.test(line)) { isAFold = true; }
+  if (/\/\/(.*)\{/.test(line)) { isAFold = true; }
+  if(/^\s*(\/\*\*\*).*\*\/\s*$/.test(line)) { isAFold = true; }
+  return isAFold;
+}
+
 const Editor = React.createClass({
   propTypes: {
     theme: React.PropTypes.string,
@@ -38,7 +46,7 @@ const Editor = React.createClass({
           if (foldWidgets[row] == null)
               foldWidgets[row] = this.getFoldWidget(row);
           if (foldWidgets[row] != "start") continue;
-          if (!/#region/.test(this.getLine(row))) continue
+          if (!isCommentFold(this.getLine(row))) continue
           var range = this.getFoldWidgetRange(row);
           // sometimes range can be incompatible with existing fold
           // TODO change addFold to return null istead of throwing
@@ -56,7 +64,6 @@ const Editor = React.createClass({
           }
       }
     };
-    console.log(this.refs.ace.editor.session);
    this.refs.ace.editor.session.foldRegion();
   },
 
