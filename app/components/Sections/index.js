@@ -28,6 +28,10 @@ class Sections extends Component {
   }
 
   render () {
+    var componentsObj = contents.search().reduce(function(prevVal, currentVal, idx) {
+                                prevVal[currentVal.name] = currentVal;
+                                return prevVal;
+                              }, {});
     return (
       <div>
         {this.getContents().map((Content, i) => {
@@ -36,6 +40,10 @@ class Sections extends Component {
           var displayName = Content.styleguide._self.type.name;
           var readme = Content.styleguide && Content.styleguide.readme ? Content.styleguide.readme.default || Content.styleguide.readme: '';
           var docgenMeta = reactPropMeta[displayName];
+          var scope = Object.assign({
+            React,
+            ReactDOM
+          }, componentsObj);
           return (
             <section className='sg sg-section' key={i}>
                <Ecology
@@ -45,7 +53,7 @@ class Sections extends Component {
                   description={Content.styleguide.description}
                   code={Content.styleguide.code}
                   source={docgenMeta}
-                  scope={{ React, ReactDOM, [displayName]: Content }}
+                  scope={scope}
                   playgroundtheme="monokai"
                   idx={i}
                 />
