@@ -7,8 +7,6 @@ import reactPropMeta from '../../rcs-tmp/propsdoc'
 // https://babeljs.io/docs/usage/modules/#interop
 let Contents = Components
   .map((Content) => Content.default || Content)
-//  .filter((Component) => Component.styleguide)
-//// compare index numbers
  .sort((a, b) => {
 
    a.styleguide = a.styleguide ? a.styleguide : {};
@@ -22,7 +20,6 @@ let Contents = Components
 
    return !a ? 1 : !b ? -1 : a.toString().localeCompare(b)
  })
-  //create example readme if not included for ecology live demo
   .map((Component) => {
     if (reactPropMeta[Component.name]) {
         var description;
@@ -30,15 +27,9 @@ let Contents = Components
 
         Component.styleguide = Component.styleguide || {};
 
-        if ( !Component.styleguide.title ) {
-            Component.styleguide.title = Component.name;
-        }
+        Component.styleguide.title = Component.styleguide.title ? Component.styleguide.title : Component.name;
 
-        if ( !Component.styleguide.description ) {
-            description = reactPropMeta[Component.name].description;
-        } else if (Component.styleguide.description) {
-            description = Component.styleguide.description;
-        }
+        description = Component.styleguide.description ? Component.styleguide.description : reactPropMeta[Component.name].description;
 
         if ( !Component.styleguide.example ) {
             var propString = '';
@@ -77,7 +68,7 @@ let Contents = Components
     }
   });
 
-export default {
+var contentObj = {
   /**
    * @type {string[]}
    */
@@ -89,6 +80,8 @@ export default {
         const styleguide = Content.styleguide;
         styleguide.category = styleguide.category ? styleguide.category : 'Misc. Component List';
         components[styleguide.category] = components[styleguide.category] ? components[styleguide.category] : [];
+        //IE fix.
+        styleguide.title = styleguide.title ? styleguide.title : Content.displayName;
         components[styleguide.category].push(styleguide.title);
 
         return Content.styleguide.category
@@ -129,5 +122,14 @@ export default {
           return exact ? val === query : phrases.every((phrase) => val.indexOf(phrase) !== -1)
         })
     })
-  }
-}
+  },
+
+  allComponents: (() => {
+    return Contents.reduce(function(prevVal, currentVal, idx) {
+        prevVal[currentVal.name] = currentVal;
+        return prevVal;
+      }, {})
+  })()
+};
+
+export default contentObj;

@@ -18,9 +18,8 @@ class NavList extends Component {
 				<ul className='sg sg-sub-nav'>
 					{contents.navList.components[this.props.category].map((component, j) => {
 						let isSelectedComponent = this.props.component === component;
-
 						return <NavListComponents isSelectedComponent={isSelectedComponent} key={j} category={this.props.category} component={component}/>
-					})}
+					}, this)}
 				</ul>
 			</li>
 		)

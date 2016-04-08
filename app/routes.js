@@ -8,7 +8,7 @@ module.exports = (
 	<Route path="/" component={App}>
 		<Route path="/search/:query" components={{ main: Main, sidebar: Sidebar }}/>
 		<Route path="/:category" components={{ main: Main, sidebar: Sidebar }}>
-			<Route path="/:category/:title" components={{ main: Main, sidebar: Sidebar }}/>
+			<Route path="/:category/:component" components={{ main: Main, sidebar: Sidebar }}/>
 		</Route>
 	</Route>
 );

@@ -18,8 +18,8 @@ class Sections extends Component {
       }
     } else if (params && params.category) {
       data = {
-        query: params.title || params.category,
-        keys: params.title ? ['title'] : ['category'],
+        query: params.component || params.category,
+        keys: params.component ? ['title'] : ['category'],
         exact: true
       }
     }
@@ -28,10 +28,7 @@ class Sections extends Component {
   }
 
   render () {
-    var componentsObj = contents.search().reduce(function(prevVal, currentVal, idx) {
-                                prevVal[currentVal.name] = currentVal;
-                                return prevVal;
-                              }, {});
+    var componentsObj = contents.allComponents;
     return (
       <div>
         {this.getContents().map((Content, i) => {

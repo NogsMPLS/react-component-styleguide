@@ -15,7 +15,7 @@ export default class Sidebar extends Component {
   }
 
   render () {
-    var component = this.props.params ? this.props.params.title : '';
+    var component = this.props.params ? this.props.params.component : '';
     var category = this.props.params ? this.props.params.category : '';
     return (
       <header className='sg sg-header'>
