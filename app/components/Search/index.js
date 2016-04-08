@@ -6,14 +6,18 @@ class Search extends Component {
     super(props)
   }
 
-  /**
-   * @param {Event} e
-   */
+  static contextTypes = {
+      router: function () {
+        return React.PropTypes.func.isRequired;
+      }
+  };
+
   onSubmit (e) {
     e.preventDefault();
     const val = e.target.elements[1].value;
     const path = `/search/${val}`;
-    browserHistory.push(path)
+    //browserHistory.push(path)
+    this.context.router.push(path)
   }
 
   render () {
