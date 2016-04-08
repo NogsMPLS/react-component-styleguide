@@ -81,7 +81,7 @@ var contentObj = {
         styleguide.category = styleguide.category ? styleguide.category : 'Misc. Component List';
         components[styleguide.category] = components[styleguide.category] ? components[styleguide.category] : [];
         //IE fix.
-        styleguide.title = styleguide.title ? styleguide.title : Content.displayName;
+        styleguide.title = styleguide.title ? styleguide.title : /^function\s+([\w\$]+)\s*\(/.exec( Content.toString() )[ 1 ];
         components[styleguide.category].push(styleguide.title);
 
         return Content.styleguide.category
