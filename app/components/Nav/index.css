@@ -5,6 +5,9 @@
 .sg-nav {
   list-style: none;
 }
+.sg-nav li {
+  list-style: none;
+}
 
 .sg-nav-link {
   display: block;
