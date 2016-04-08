@@ -1,7 +1,7 @@
 /* eslint new-cap:0 no-unused-vars:0 */
 import React from "react";
 import brace from 'brace';
-import AceEditor from 'react-ace';
+import AceEditor from './ace';
 import 'brace/mode/javascript';
 import 'brace/theme/monokai';
 import 'brace/ext/language_tools';

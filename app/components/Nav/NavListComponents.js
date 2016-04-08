@@ -9,7 +9,6 @@ class NavListComponents extends Component {
 				<Link
 					className={`sg sg-nav-link ${this.props.isSelectedComponent ? 'is-selected' : ''}`}
 					to={`/${this.props.category}/${this.props.component}`}
-					key={this.props.key}
 				>
 					{this.props.component}
 				</Link>
