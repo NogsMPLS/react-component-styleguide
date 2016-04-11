@@ -21,33 +21,35 @@ let Contents = Components
    return !a ? 1 : !b ? -1 : a.toString().localeCompare(b)
  })
   .map((Component) => {
-    if (reactPropMeta[Component.name]) {
+  //IE fix for Component.name
+  var componentName = Component.name ? Component.name : /^function\s+([\w\$]+)\s*\(/.exec( Component.toString() )[ 1 ];
+    if (reactPropMeta[componentName]) {
         var description;
         var code;
 
         Component.styleguide = Component.styleguide || {};
 
-        Component.styleguide.title = Component.styleguide.title ? Component.styleguide.title : Component.name;
+        Component.styleguide.title = Component.styleguide.title ? Component.styleguide.title : componentName;
 
-        description = Component.styleguide.description ? Component.styleguide.description : reactPropMeta[Component.name].description;
+        description = Component.styleguide.description ? Component.styleguide.description : reactPropMeta[componentName].description;
 
         if ( !Component.styleguide.example ) {
             var propString = '';
             var childrenString = '';
-            for (var key in reactPropMeta[Component.name].props) {
-                if (key != "children" && reactPropMeta[Component.name].props[key].required && reactPropMeta[Component.name].props[key].defaultValue){
-                    propString += ` ${key}=${reactPropMeta[Component.name].props[key].defaultValue.value}`
-                } else if (key == "children" && reactPropMeta[Component.name].props[key].defaultValue) {
+            for (var key in reactPropMeta[componentName].props) {
+                if (key != "children" && reactPropMeta[componentName].props[key].required && reactPropMeta[componentName].props[key].defaultValue){
+                    propString += ` ${key}=${reactPropMeta[componentName].props[key].defaultValue.value}`
+                } else if (key == "children" && reactPropMeta[componentName].props[key].defaultValue) {
 
-                    if (reactPropMeta[Component.name].props[key].defaultValue.value.substr(0, 1) === "'" && reactPropMeta[Component.name].props[key].defaultValue.value.substr(-1) === "'"){
-                        childrenString = '\n    '+reactPropMeta[Component.name].props[key].defaultValue.value.slice(1, -1)+'\n';
+                    if (reactPropMeta[componentName].props[key].defaultValue.value.substr(0, 1) === "'" && reactPropMeta[componentName].props[key].defaultValue.value.substr(-1) === "'"){
+                        childrenString = '\n    '+reactPropMeta[componentName].props[key].defaultValue.value.slice(1, -1)+'\n';
                     } else {
-                        childrenString = '\n    '+reactPropMeta[Component.name].props[key].defaultValue.value+'\n';
+                        childrenString = '\n    '+reactPropMeta[componentName].props[key].defaultValue.value+'\n';
                     }
                 }
             }
 
-            code = '\n<' + Component.name + propString+'>'+childrenString+'</' + Component.name + '>\n';
+            code = '\n<' + componentName + propString+'>'+childrenString+'</' + componentName + '>\n';
         } else if (Component.styleguide.example) {
             code = Component.styleguide.example;
         }
@@ -126,7 +128,8 @@ var contentObj = {
 
   allComponents: (() => {
     return Contents.reduce(function(prevVal, currentVal, idx) {
-        prevVal[currentVal.name] = currentVal;
+        var currentValName = currentVal.name ? currentVal.name : /^function\s+([\w\$]+)\s*\(/.exec( currentVal.toString() )[ 1 ];
+        prevVal[currentValName] = currentVal;
         return prevVal;
       }, {})
   })()

@@ -21,6 +21,35 @@ function isCommentFold(line) {
   return isAFold;
 }
 
+function foldRegion(context, startRow, endRow, depth) {
+  if (depth == undefined)
+      depth = 100000; // JSON.stringify doesn't hanle Infinity
+  var foldWidgets = context.foldWidgets;
+  if (!foldWidgets)
+      return; // mode doesn't support folding
+  endRow = endRow || context.getLength();
+  startRow = startRow || 0;
+  for (var row = startRow; row < endRow; row++) {
+      if (foldWidgets[row] == null)
+          foldWidgets[row] = context.getFoldWidget(row);
+      if (foldWidgets[row] != "start") continue;
+      if (!isCommentFold(context.getLine(row))) continue
+      var range = context.getFoldWidgetRange(row);
+      // sometimes range can be incompatible with existing fold
+      // TODO change addFold to return null istead of throwing
+      if (range && range.isMultiLine()
+          && range.end.row <= endRow
+          && range.start.row >= startRow
+      ) {
+          row = range.end.row;
+          try {
+              // addFold can change the range
+              var fold = context.addFold("...", range);
+          } catch(e) {}
+      }
+  }
+}
+
 const Editor = React.createClass({
   propTypes: {
     theme: React.PropTypes.string,
@@ -34,35 +63,7 @@ const Editor = React.createClass({
   componentDidMount() {
      this.refs.ace.editor.on("change", this._handleChange);
      this.refs.ace.editor.session.setUseWorker(false);
-     this.refs.ace.editor.session.__proto__.foldRegion = function(startRow, endRow, depth) {
-      if (depth == undefined)
-          depth = 100000; // JSON.stringify doesn't hanle Infinity
-      var foldWidgets = this.foldWidgets;
-      if (!foldWidgets)
-          return; // mode doesn't support folding
-      endRow = endRow || this.getLength();
-      startRow = startRow || 0;
-      for (var row = startRow; row < endRow; row++) {
-          if (foldWidgets[row] == null)
-              foldWidgets[row] = this.getFoldWidget(row);
-          if (foldWidgets[row] != "start") continue;
-          if (!isCommentFold(this.getLine(row))) continue
-          var range = this.getFoldWidgetRange(row);
-          // sometimes range can be incompatible with existing fold
-          // TODO change addFold to return null istead of throwing
-          if (range && range.isMultiLine()
-              && range.end.row <= endRow
-              && range.start.row >= startRow
-          ) {
-              row = range.end.row;
-              try {
-                  // addFold can change the range
-                  var fold = this.addFold("...", range);
-              } catch(e) {}
-          }
-      }
-    };
-   this.refs.ace.editor.session.foldRegion();
+     foldRegion(this.refs.ace.editor.session);
   },
 
   componentDidUpdate() {
