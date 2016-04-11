@@ -3,11 +3,15 @@
  */
 
 .sg-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: auto;
-  left: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+
   overflow: hidden;
   min-height: 100%;
   background: var(--gray-lighter);

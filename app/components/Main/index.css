@@ -9,8 +9,8 @@
 
 @media (--break-sm) {
   .sg-main {
-    flex: 1;
-    max-width: calc(100% - 240px);
+    flex: 1 100%;
+    max-width: calc(100% - 290px);
     padding: 25px 25px 0;
   }
 }

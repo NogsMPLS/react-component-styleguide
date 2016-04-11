@@ -14,7 +14,7 @@ module.exports = {
     module: {
       loaders: [
         {
-          test: /button\.css$/,
+          test: /\.css$/,
           loader: 'style!css?sourceMap&modules&importLoaders=1&localIdentName=ra_[name]__[local]!postcss'
         }
       ]
