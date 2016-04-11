@@ -4,14 +4,12 @@
 
 .sg-header {
   position: relative;
-  flex: 1;
   color: var(--white);
   background: var(--gray-darker);
 }
 
 @media (--break-sm) {
   .sg-header {
-    flex: 1;
     width: 240px;
   }
 }
