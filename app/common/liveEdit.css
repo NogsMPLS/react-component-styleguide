@@ -164,7 +164,6 @@ th, td {
 }
 
 .Interactive .playgroundPreview {
-    display: flex;
     flex: 0 0 100%;
     align-items: center;
     justify-content: center;
@@ -176,7 +175,6 @@ th, td {
 
 @media only screen and (min-width: 70em) {
   .Interactive .playgroundPreview {
-    display: flex;
     flex: 1;
     margin-left: 12px;
   }
