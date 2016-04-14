@@ -32,9 +32,7 @@ class Sections extends Component {
     return (
       <div>
         {this.getContents().map((Content, i) => {
-          // This exists so we can pull out the displayName for props documentation
-          Content.styleguide._self = <Content />;
-          var displayName = Content.styleguide._self.type.name;
+          var displayName = Content.name ? Content.name : /^function\s+([\w\$]+)\s*\(/.exec( Content.toString() )[ 1 ];
           var readme = Content.styleguide && Content.styleguide.readme ? Content.styleguide.readme.default || Content.styleguide.readme: '';
           var docgenMeta = reactPropMeta[displayName];
           var scope = Object.assign({
