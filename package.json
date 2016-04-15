@@ -70,6 +70,7 @@
     "babel-standalone": "^6.7.4",
     "brace": "^0.8.0 ",
     "bunyan": "^1.8.0",
+    "copy-webpack-plugin": "^2.0.1",
     "cross-env": "^1.0.7",
     "css-loader": "^0.23.1",
     "cssnext": "^1.8.4",

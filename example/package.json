@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "start": "npm run styleguide && npm run serve",
-    "styleguide": "node ../bin/rcs \"components/**/*.js\" -v -c ./styleguide.js -d",
+    "styleguide": "node ../bin/rcs \"components/**/*.js\" -v -r /atlas -c ./styleguide.js -d",
     "serve": "serve ./styleguide"
   },
   "dependencies": {
