@@ -339,7 +339,9 @@ Get the demo running locally:
 
 ``` sh
 git clone git@github.com:NogsMPLS/react-component-styleguide.git
-cd react-component-styleguide/example/
+cd react-component-styleguide/
+npm install
+cd example/
 npm install
 npm start
 ```
