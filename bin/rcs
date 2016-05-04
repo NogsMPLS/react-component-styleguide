@@ -23,7 +23,8 @@ var log
     files: argv.f || argv.files,
     config: argv.c || argv.config,
     dev: argv.d || argv.dev,
-    verbose: argv.v || argv.verbose
+    verbose: argv.v || argv.verbose,
+    styleComponents: argv.s || argv.styleComponents
   }
 
   log = require('../lib/logger')('bin', { debug: true })

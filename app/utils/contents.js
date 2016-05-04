@@ -1,12 +1,15 @@
 // component-requires.js is a generated file in rsg.js that contains
 // the list of required user-defined components
 import Components from '../../rcs-tmp/component-requires'
+import StyledComponents from '../../rcs-tmp/styled-component-requires'
 import reactPropMeta from '../../rcs-tmp/propsdoc'
 
+let StyledContents = StyledComponents ? StyledComponents
+    .map((Content) => Content.default || Content) : false;
 // for `commonStrict` module formatter
 // https://babeljs.io/docs/usage/modules/#interop
 let Contents = Components
-  .map((Content) => Content.default || Content)
+ .map((Content) => Content.default || Content)
  .sort((a, b) => {
 
    a.styleguide = a.styleguide ? a.styleguide : {};
@@ -132,7 +135,19 @@ var contentObj = {
         prevVal[currentValName] = currentVal;
         return prevVal;
       }, {})
+  })(),
+
+  allStyledComponents: (() => {
+    if (StyledContents) {
+        return StyledContents.reduce(function(prevVal, currentVal, idx) {
+            Object.assign(prevVal, currentVal);
+            return prevVal;
+          }, {})
+    } else {
+        return {}
+    }
   })()
+
 };
 
 export default contentObj;

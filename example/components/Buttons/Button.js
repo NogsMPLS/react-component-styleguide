@@ -1,59 +1,12 @@
 import React, { PropTypes } from 'react';
-import ClassNames from 'classnames/bind';
-import style from './button.css';
 
 /**
  * Creates a reusable, customizable button.
  */
-const Button = ({className, outline, href, loading, primary, secondary, success, warning, danger, link, large, small, block, disabled, children, ...others}) => {
+const Button = ({loading, disabled, children, theme, className, ...props}) => {
 
-    const element = href ? 'a' : 'button';
-    const cx = ClassNames.bind(style);
-    let classNames = cx({
-        large,
-        small,
-        block,
-        disabled,
-        className
-    });
-
-    if (outline) {
-      classNames += ' ' + cx({
-        primary_outline: !secondary && !success && !warning && !danger && !link,
-        secondary,
-        success_outline: success,
-        warning_outline: warning,
-        danger_outline: danger,
-        link_outline: link
-      });
-    } else {
-      classNames += ' ' + cx({
-        primary: !secondary && !success && !warning && !danger && !link,
-        secondary,
-        success,
-        warning,
-        danger,
-        link
-      });
-    }
-
-
-    let role;
-    if (element === 'a') {
-      role = 'button';
-    }
-    const props = {
-      ...others,
-      href,
-      className: classNames,
-      disabled: disabled || loading,
-      role
-    };
-
-    return React.createElement(element, props,
-      children
-    );
-
+    var disabledStyle = disabled || loading ? theme.disabled : '';
+    return <button {...props} className={`${theme.base} ${disabledStyle} ${className}`}>{children}</button>
 };
 
 Button.displayName = 'Button';
@@ -64,44 +17,10 @@ Button.styleguide = {
   example: `
   <section>
     <p>Regular Buttons</p>
-    <Button>Button</Button>
-    <Button>Secondary</Button>
-    <Button>Success</Button>
-    <Button>Warning</Button>
-    <Button>Danger</Button>
-
-    <p>Disabled Regular Buttons</p>
-    <Button disabled >Button</Button>
-    <Button disabled>Secondary</Button>
-    <Button disabled >Success</Button>
-    <Button disabled >Warning</Button>
-    <Button disabled >Danger</Button>
-
-    <p>Outline Buttons</p>
-    <Button>Button</Button>
-    <Button>Secondary</Button>
-    <Button>Success</Button>
-    <Button>Warning</Button>
-    <Button>Danger</Button>
-
-    <p>Disabled Outline Buttons</p>
-    <Button disabled>Button</Button>
-    <Button disabled>Secondary</Button>
-    <Button disabled>Success</Button>
-    <Button disabled>Warning</Button>
-    <Button disabled>Danger</Button>
-
-    <p>Large Buttons</p>
-    <Button>Button</Button>
-    <Button>Secondary</Button>
-
-    <p>Small Buttons</p>
-    <Button>Button</Button>
-    <Button>Secondary</Button>
-
-    <p>Block Level Buttons</p>
-    <Button>Button</Button>
-    <Button>Secondary</Button>
+    <PrimaryButton>PrimaryButton</PrimaryButton>
+    <SecondaryButton>Secondary</SecondaryButton>
+    <div style={{clear: 'both'}}> </div>
+    <Button>Core 'unstyled' Button with primary theme as default</Button>
   </section>
   `
 };
@@ -126,34 +45,7 @@ Button.propTypes = {
      * Use outline styled button
      * @examples <Button outline>
      */
-  outline: PropTypes.bool,
-    /**
-     * Define button href if anchor
-     * @examples '#', 'http://some-website.com/'
-     */
-  href: PropTypes.string,
-    /**
-     * Set loading animation on button
-     * @examples <Button loading>
-     */
-  loading: PropTypes.bool,
-    /**
-     * Use primary style button (button is set to this by default)
-     * @examples <Button primary>
-     */
-  primary: PropTypes.bool,
-  type: PropTypes.string,
-    /**
-     * Use secondary style button
-     * @examples <Button secondary>
-     */
-  secondary: PropTypes.bool,
-  success: PropTypes.bool,
-  warning: PropTypes.bool,
-  danger: PropTypes.bool,
-  link: PropTypes.bool,
-  large: PropTypes.bool,
-  small: PropTypes.bool
+  theme: PropTypes.object
 };
 
 Button.defaultProps = {
@@ -170,8 +62,11 @@ Button.defaultProps = {
   danger: false,
   link: false,
   large: false,
-  small: false
-
+  small: false,
+  theme: {
+    base: "",
+    disabled: ""
+  }
 };
 
 export default Button;

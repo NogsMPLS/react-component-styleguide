@@ -28,7 +28,7 @@ class Sections extends Component {
   }
 
   render () {
-    var componentsObj = contents.allComponents;
+    var componentsObj = Object.assign({}, contents.allComponents, contents.allStyledComponents);
     return (
       <div>
         {this.getContents().map((Content, i) => {
