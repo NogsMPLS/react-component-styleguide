@@ -24,7 +24,8 @@ var log
     config: argv.c || argv.config,
     dev: argv.d || argv.dev,
     verbose: argv.v || argv.verbose,
-    styleComponents: argv.s || argv.styleComponents
+    styleComponents: argv.s || argv.styleComponents,
+    ignore: argv.i || argv.ignore
   }
 
   log = require('../lib/logger')('bin', { debug: true })
