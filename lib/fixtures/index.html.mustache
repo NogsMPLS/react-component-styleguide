@@ -16,24 +16,24 @@
     <meta name="format-detection" content="telephone=no">
 
 
-    <link href="src/workSans.css" rel="stylesheet" type="text/css">
-    <link href="src/sansPro.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="src/normalize.min.css"/>
+    <link href="{{{root}}}/workSans.css" rel="stylesheet" type="text/css">
+    <link href="{{{root}}}/sansPro.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{{root}}}/normalize.min.css"/>
+    <link href="{{{root}}}/styles.css" rel="stylesheet" type="text/css">
     {{#cssFils}}
-      <link rel="stylesheet" href="src/{{{.}}}">
+      <link rel="stylesheet" href="{{{root}}}/{{{.}}}">
     {{/cssFils}}
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">{{{html}}}</div>
 
     {{#jsFils}}
-      <script src="src/{{{.}}}"></script>
+      <script src="{{{root}}}/{{{.}}}"></script>
     {{/jsFils}}
-    <script src="src/vendor.bundle.js"></script>
-    <script src="src/bundle.js"></script>
+    <script src="bundle.js"></script>
     <!--[if IE]>
-      <script src="src/es5-shim.min.js"></script>
-      <script src="src/es5-sham.min.js"></script>
+      <script src="{{{root}}}/es5-shim.min.js"></script>
+      <script src="{{{root}}}/es5-sham.min.js"></script>
     <![endif]-->
   </body>
 </html>

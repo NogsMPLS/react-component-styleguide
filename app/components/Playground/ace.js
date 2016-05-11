@@ -4,7 +4,7 @@
  * Copyright (c) 2014 James Hrisho
  */
 
-import ace from 'brace';
+
 import React, { Component, PropTypes } from 'react';
 
 const editorOptions = [
@@ -34,6 +34,10 @@ export default class ReactAce extends Component {
   }
 
   componentDidMount() {
+    var ace = require('brace');
+    require('brace/mode/javascript');
+    require('brace/theme/monokai');
+    require('brace/ext/language_tools');
     const {
       name,
       onBeforeLoad,

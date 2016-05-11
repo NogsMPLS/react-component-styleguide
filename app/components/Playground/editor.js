@@ -1,10 +1,6 @@
 /* eslint new-cap:0 no-unused-vars:0 */
 import React from "react";
-import brace from 'brace';
 import AceEditor from './ace';
-import 'brace/mode/javascript';
-import 'brace/theme/monokai';
-import 'brace/ext/language_tools';
 
 function camelize(str) {
   return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
@@ -36,7 +32,7 @@ function foldRegion(context, startRow, endRow, depth) {
       if (!isCommentFold(context.getLine(row))) continue
       var range = context.getFoldWidgetRange(row);
       // sometimes range can be incompatible with existing fold
-      // TODO change addFold to return null istead of throwing
+      // TODO change addFold to return null instead of throwing
       if (range && range.isMultiLine()
           && range.end.row <= endRow
           && range.start.row >= startRow
@@ -61,9 +57,9 @@ const Editor = React.createClass({
     className: React.PropTypes.string
   },
   componentDidMount() {
-     this.refs.ace.editor.on("change", this._handleChange);
-     this.refs.ace.editor.session.setUseWorker(false);
-     foldRegion(this.refs.ace.editor.session);
+    this.refs.ace.editor.on("change", this._handleChange);
+    this.refs.ace.editor.session.setUseWorker(false);
+    foldRegion(this.refs.ace.editor.session);
   },
 
   componentDidUpdate() {

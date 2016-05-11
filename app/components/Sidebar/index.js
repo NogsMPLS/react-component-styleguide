@@ -4,8 +4,8 @@ import Nav from '../Nav'
 import Search from '../Search'
 
 export default class Sidebar extends Component {
-  title = document.title;
-
+  //title = document ? document.title: 'placeholder';
+  title = 'temp placeholder';
   state = {
     visibleMenu: false
   };

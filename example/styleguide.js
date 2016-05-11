@@ -1,12 +1,14 @@
 var autoprefixer = require('autoprefixer');
 var cssnext = require('postcss-cssnext');
 var postcssImport = require('postcss-import');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var path = require('path');
 
 module.exports = {
   "title": "React Component Style Guide",
   "files": [
-    "example.css"
+    "example.css",
+    "newStyles.css"
   ],
   "babelConfig": {
     "stage": 0
@@ -16,7 +18,7 @@ module.exports = {
       loaders: [
         {
           test: /\.css$/,
-          loader: 'style!css?sourceMap&modules&importLoaders=1&localIdentName=ra_[name]__[local]!postcss'
+          loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=ra_[name]__[local]!postcss')
         },
         {
           test: /\.js$/,
@@ -28,6 +30,11 @@ module.exports = {
         }
       ]
     },
+    plugins: [
+      new ExtractTextPlugin("newStyles.css", {
+            allChunks: true
+      })
+    ],
     postcss (bundler) {
       return [
         postcssImport({

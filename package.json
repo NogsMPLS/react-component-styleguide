@@ -13,7 +13,11 @@
     "test": "standard && mocha test/**/*.js",
     "start": "cross-env NODE_ENV=development node bin/rcs 'example/components/**/*.js' -v -d",
     "clean": "rimraf rcs-tmp/*",
-    "styleguide": "node bin/rcs 'example/components/**/*.js' -v"
+    "styleguide": "node bin/rcs 'example/components/**/*.js' -v",
+    "dev": "cross-env NODE_ENV=development node ./bin/rcs ./example/components/**/*.js -s ./example/styledComponents/**/*.js -r /react-component-styleguide -v -c ./example/styleguide.js -d",
+    "pages:build": "cross-env NODE_ENV=production node ./bin/rcs ./example/components/**/*.js -s ./example/styledComponents/**/*.js -r /react-component-styleguide -v -c ./example/styleguide.js",
+    "pages:deploy": "gh-pages -d ./styleguide/src -r https://github.com/NogsMPLS/react-component-styleguide.git -b gh-pages",
+    "pages": "npm run pages:build && npm run pages:deploy && rimraf ./styleguide"
   },
   "files": [
     ".babelrc",
@@ -78,6 +82,7 @@
     "deepmerge": "anthonator/deepmerge#feature/array-options",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.4",
+    "extract-text-webpack-plugin": "^1.0.1",
     "fs-extra": "^0.26.7",
     "glob": "^7.0.3",
     "history": "2.0.1",
@@ -101,6 +106,7 @@
     "react-router": "^2.0.1",
     "react-transform-catch-errors": "^1.0.2",
     "react-transform-hmr": "^1.0.4",
+    "static-site-generator-webpack-plugin": "^2.0.1",
     "redbox-react": "^1.2.3",
     "slash": "^1.0.0",
     "style-loader": "^0.13.0",
