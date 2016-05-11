@@ -14,7 +14,7 @@
     "start": "cross-env NODE_ENV=development node bin/rcs 'example/components/**/*.js' -v -d",
     "clean": "rimraf rcs-tmp/*",
     "styleguide": "node bin/rcs 'example/components/**/*.js' -v",
-    "dev": "cross-env NODE_ENV=development node ./bin/rcs ./example/components/**/*.js -s ./example/styledComponents/**/*.js -r /react-component-styleguide -v -c ./example/styleguide.js -d",
+    "dev": "cross-env NODE_ENV=development node ./bin/rcs ./example/components/**/*.js -s ./example/styledComponents/**/*.js -v -c ./example/styleguide.js -d",
     "pages:build": "cross-env NODE_ENV=production node ./bin/rcs ./example/components/**/*.js -s ./example/styledComponents/**/*.js -r /react-component-styleguide -v -c ./example/styleguide.js",
     "pages:deploy": "gh-pages -d ./styleguide/src -r https://github.com/NogsMPLS/react-component-styleguide.git -b gh-pages",
     "pages": "npm run pages:build && npm run pages:deploy && rimraf ./styleguide"
