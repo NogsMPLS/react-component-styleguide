@@ -2,10 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import marked from "marked";
 import Playground from '../Playground';
-
+import Spinner from './Spinner';
 
 class Overview extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {loading: true};
+  }
+
   componentDidMount() {
+    this.setState({loading: false});
     this.renderPlaygrounds();
   }
   componentDidUpdate() {
@@ -57,17 +63,27 @@ class Overview extends React.Component {
   }
   render() {
     const markdown = marked(this.props.markdown);
+    var overviewStyles = this.state.loading ? {display: "none"} : {display: "block"};
+    var spinnerStyles = this.state.loading ? {display: "block"} : {display: "none"};
     return (
-      <div ref="overview" dangerouslySetInnerHTML={{__html: markdown}}>
+    <div>
+        <Spinner style={spinnerStyles} />
+        <div ref="overview" dangerouslySetInnerHTML={{__html: markdown}} style={overviewStyles}>
+        </div>
       </div>
     );
   }
 }
 
-export default Overview;
-
 Overview.propTypes = {
   markdown: React.PropTypes.string,
   playgroundtheme: React.PropTypes.string,
-  scope: React.PropTypes.object
+  scope: React.PropTypes.object,
+  loading: React.PropTypes.bool
 };
+
+Overview.defaultProps = {
+  loading: true
+}
+
+export default Overview;

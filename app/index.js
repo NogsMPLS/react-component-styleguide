@@ -27,10 +27,11 @@ export default (locals, callback) => {
 
   match({ routes, location }, (error, redirectLocation, renderProps) => {
     callback(null, template({
-      html: renderToStaticMarkup(<RouterContext {...renderProps} />),
+      html: renderToStaticMarkup(<RouterContext {...renderProps} {...locals.title} />),
       root: locals.root,
       cssFils: locals.cssFils,
-      jsFils: locals.jsFils
+      jsFils: locals.jsFils,
+      title:  locals.title
     }));
   });
 };
