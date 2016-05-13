@@ -61,6 +61,10 @@
       "example"
     ]
   },
+  "peerDependencies": {
+    "react": "^14.0.0 || ^15.0.1",
+    "react-dom": "^14.0.0 || ^15.0.1"
+  },
   "dependencies": {
     "autoprefixer": "^6.3.6",
     "babel-core": "^6.7.2",
@@ -77,8 +81,6 @@
     "copy-webpack-plugin": "^2.0.1",
     "cross-env": "^1.0.7",
     "css-loader": "^0.23.1",
-    "cssnext": "^1.8.4",
-    "cssnext-loader": "^1.0.1",
     "deepmerge": "anthonator/deepmerge#feature/array-options",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.4",
@@ -102,8 +104,6 @@
     "postcss-loader": "^0.8.2",
     "raw-loader": "^0.5.1",
     "react-docgen": "NogsMPLS/react-docgen#feature/inferDisplayName",
-    "react": "^15.0.1",
-    "react-dom": "^15.0.1",
     "react-router": "^2.0.1",
     "react-transform-catch-errors": "^1.0.2",
     "react-transform-hmr": "^1.0.4",
