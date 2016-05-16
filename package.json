@@ -62,8 +62,8 @@
     ]
   },
   "peerDependencies": {
-    "react": "^14.0.0 || ^15.0.1",
-    "react-dom": "^14.0.0 || ^15.0.1"
+    "react": "^0.14.7 || ^15.0.1",
+    "react-dom": "^0.14.7 || ^15.0.1"
   },
   "dependencies": {
     "autoprefixer": "^6.3.6",
