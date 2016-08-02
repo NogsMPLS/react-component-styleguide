@@ -1,6 +1,6 @@
 {
   "name": "react-component-styleguide",
-  "version": "0.0.45",
+  "version": "0.0.46",
   "publishConfig": {
     "registry": "http://registry.npmjs.org/"
   },
@@ -93,7 +93,8 @@
     "deep-equal": "1.0.1",
     "query-string": "4.2.2",
     "invariant": "2.2.1",
-    "immutable": "^3.7.6",
+    "immutable": "^3.7.6",,
+    "json-loader": "^0.5.4",
     "marked": "^0.3.5",
     "minimist": "^1.2.0",
     "mustache": "^2.2.1",
