@@ -1,6 +1,6 @@
 {
   "name": "react-component-styleguide",
-  "version": "0.0.47",
+  "version": "0.0.48",
   "publishConfig": {
     "registry": "http://registry.npmjs.org/"
   },
@@ -81,7 +81,7 @@
     "copy-webpack-plugin": "^3.0.1",
     "cross-env": "^2.0.0",
     "css-loader": "^0.23.1",
-    "deepmerge": "anthonator/deepmerge#feature/array-options",
+    "extendify": "^1.0.0",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.4",
     "extract-text-webpack-plugin": "^1.0.1",
