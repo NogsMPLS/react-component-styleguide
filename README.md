@@ -1,3 +1,6 @@
+# [UNMAINTAINED] - Use React Styleguidist Instead
+This project is unmaintained. React Styleguidist does basically everything I envisioned for this project and has much better support. Go check it out at: https://github.com/styleguidist/react-styleguidist
+
 # React Component Styleguide
 
 A mashup of [react-styleguide-generator-alt](https://github.com/theogravity/react-styleguide-generator-alt) and [ecology](https://github.com/FormidableLabs/ecology)
